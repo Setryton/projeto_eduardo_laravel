@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AutorController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class AutorController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome.blade.php');
     }
 
     /**
@@ -34,19 +34,12 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente([
+        $cliente = new ClienteController([
             'nome' => $request->input('nome'),
             'endereco' => $request->input('endereco'),
             'contato' => $request->input('contato')
         ]);
         $cliente->save();
-
-        $produtos = new Produtos([
-            'nome' => $request->input('nome'),
-            'preco' => $request->input('preco'),
-            'quantidade_estoque' => $request->input('quantidade_estoque')
-        ]);
-        $produtos->save();
     }
 
     /**
